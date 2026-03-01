@@ -27,18 +27,19 @@ docker compose stop
 # Maintenance
 ```shell
 # Check logs
-docker compose ps
-docker compose logs -f n8n
+docker ps
+docker logs -f n8n
 
 # Update n8n to latest version
 docker compose pull
 docker compose up -d
-# OR
-docker compose restart
 
 # Complete removal
 docker-compose down
 rm -rf ~/n8n
+
+# Rebuild a service
+docker compose up -d --no-deps --build ollama
 ```
 
 # ssh tunnel
