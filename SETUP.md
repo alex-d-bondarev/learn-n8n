@@ -3,12 +3,14 @@
 1. Docker compose installed
 2. A folder for n8n data is created with `chown -R 1000:1000` permissions
 3. A folder for app knowledge base is created with `chown -R 1000:1000` permissions 
-4. An env file created in the project root:
+4. A folder for ollama models is created with `chown -R 1000:1000` permissions 
+5. An env file created in the project root:
    1. Name: `.env`
    2. Content:
       ```shell
       DATA_FOLDER=<path to data folder created in step no.2>
       KNOWLEDGE_BASE_FOLDER=<path to knowledge base folder created in step no.3>
+      OLLAMA_MODELS_FOLDER=<path to ollama models folder created in step no.4>
       PROJECT_ROOT=<path to project root folder>
       ```
 
@@ -25,14 +27,14 @@ docker compose stop
 # Maintenance
 ```shell
 # Check logs
-docker-compose ps
-docker-compose logs -f n8n
+docker compose ps
+docker compose logs -f n8n
 
 # Update n8n to latest version
-docker-compose pull
-docker-compose up -d
+docker compose pull
+docker compose up -d
 # OR
-docker-compose restart
+docker compose restart
 
 # Complete removal
 docker-compose down
