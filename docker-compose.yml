@@ -1,0 +1,26 @@
+services:
+  ollama:
+    image: ollama/ollama
+    container_name: ollama
+    restart: unless-stopped
+    volumes:
+      - ./ollama:/root/.ollama
+    ports:
+      - "11434:11434"
+    environment:
+      - OLLAMA_HOST=0.0.0.0
+
+  n8n:
+    image: n8nio/n8n:latest
+    container_name: n8n
+    restart: unless-stopped
+    ports:
+      - "5678:5678"
+    environment:
+      # For N8N
+      - N8N_SECURE_COOKIE=false
+      # For scripts
+      - PROJECT_ROOT=${PROJECT_ROOT}
+    volumes:
+      - ./n8n_data:${DATA_FOLDER}
+      - ./knowledge-base:${KNOWLEDGE_BASE_FOLDER}

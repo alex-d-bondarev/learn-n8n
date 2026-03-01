@@ -1,0 +1,47 @@
+# Prerequisites
+
+1. Docker compose installed
+2. A folder for n8n data is created with `chown -R 1000:1000` permissions
+3. A folder for app knowledge base is created with `chown -R 1000:1000` permissions 
+4. An env file created in the project root:
+   1. Name: `.env`
+   2. Content:
+      ```shell
+      DATA_FOLDER=<path to data folder created in step no.2>
+      KNOWLEDGE_BASE_FOLDER=<path to knowledge base folder created in step no.3>
+      PROJECT_ROOT=<path to project root folder>
+      ```
+
+# Start
+```shell
+docker compose up -d
+```
+
+# Stop
+```shell
+docker compose stop
+```
+
+# Maintenance
+```shell
+# Check logs
+docker-compose ps
+docker-compose logs -f n8n
+
+# Update n8n to latest version
+docker-compose pull
+docker-compose up -d
+# OR
+docker-compose restart
+
+# Complete removal
+docker-compose down
+rm -rf ~/n8n
+```
+
+# ssh tunnel
+For oauth per https://abaditya.com/2025/11/30/installing-n8n-on-raspberry-pi-3b/
+```shell
+ssh -L 5678:localhost:5678 pi@[your-pi-ip]
+# open http://localhost:5678
+```
