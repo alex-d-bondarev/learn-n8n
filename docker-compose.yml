@@ -5,6 +5,7 @@ services:
     restart: unless-stopped
     volumes:
       - ./ollama:${OLLAMA_MODELS_FOLDER}
+      - /entrypoint.sh:./ollama_entrypoint.sh
     ports:
       - "11434:11434"
     environment:
