@@ -11,7 +11,7 @@ services:
       - OLLAMA_HOST=0.0.0.0
 
   n8n:
-    image: n8nio/n8n:latest
+    image: docker.n8n.io/n8nio/n8n
     container_name: n8n
     restart: unless-stopped
     ports:
