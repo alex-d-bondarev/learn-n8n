@@ -44,7 +44,7 @@ rm -rf ${DATA_FOLDER}
 rm -rf ${PROJECT_ROOT}
 
 # Rebuild a service
-docker compose up -d --no-deps --build ollama
+docker compose up -d --no-deps --build n8n
 ```
 
 # ssh tunnel
