@@ -36,7 +36,9 @@ docker compose up -d
 
 # Complete removal
 docker-compose down
-rm -rf ~/n8n
+rm -rf ${KNOWLEDGE_BASE_FOLDER}
+rm -rf ${DATA_FOLDER}
+rm -rf ${PROJECT_ROOT}
 
 # Rebuild a service
 docker compose up -d --no-deps --build ollama

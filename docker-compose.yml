@@ -23,6 +23,23 @@ services:
       - N8N_SECURE_COOKIE=false
       # For scripts
       - PROJECT_ROOT=${PROJECT_ROOT}
+      # For runners
+      - N8N_RUNNERS_ENABLED=true
+      - N8N_RUNNERS_MODE=external
+      - N8N_RUNNERS_BROKER_LISTEN_ADDRESS=0.0.0.0
+      - N8N_RUNNERS_AUTH_TOKEN=test
+      - N8N_NATIVE_PYTHON_RUNNER=true
     volumes:
       - ${DATA_FOLDER}:/home/node/.n8n
       - ${KNOWLEDGE_BASE_FOLDER}:/knowledge-base
+      - ${PROJECT_ROOT}/python_scripts:/python_scripts
+
+  task-runners:
+    container_name: n8n-runners
+    restart: unless-stopped
+    build: .
+    environment:
+      - N8N_RUNNERS_TASK_BROKER_URI=http://n8n:5679
+      - N8N_RUNNERS_AUTH_TOKEN=test
+    depends_on:
+      - n8n
