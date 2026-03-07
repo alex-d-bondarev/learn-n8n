@@ -34,6 +34,8 @@ services:
       - ${DATA_FOLDER}:/home/node/.n8n
       - ${KNOWLEDGE_BASE_FOLDER}:/knowledge-base
       - ${PROJECT_ROOT}/python_scripts:/python_scripts
+    depends_on:
+      - ollama
 
   task-runners:
     container_name: n8n-runners
