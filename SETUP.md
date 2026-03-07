@@ -9,6 +9,7 @@
    2. Content:
       ```shell
       DATA_FOLDER=<path to data folder created in step no.2>
+      DOMAIN=<ip OR domain or localhost>
       KNOWLEDGE_BASE_FOLDER=<path to knowledge base folder created in step no.3>
       OLLAMA_MODELS_FOLDER=<path to ollama models folder created in step no.4>
       PROJECT_ROOT=<path to project root folder>
