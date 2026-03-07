@@ -1,6 +1,6 @@
 services:
   ollama:
-    image: ollama/ollama
+    image: ollama/ollama:0.17.7
     container_name: ollama
     restart: unless-stopped
     volumes:
@@ -13,7 +13,7 @@ services:
     entrypoint: ["/usr/bin/bash", "/entrypoint.sh"]
 
   n8n:
-    image: docker.n8n.io/n8nio/n8n
+    image: docker.n8n.io/n8nio/n8n:2.10.4
     container_name: n8n
     restart: unless-stopped
     ports:
