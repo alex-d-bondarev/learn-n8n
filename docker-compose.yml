@@ -21,6 +21,7 @@ services:
     environment:
       # For N8N
       - N8N_SECURE_COOKIE=false
+      - N8N_HOST=0.0.0.0
       # For scripts
       - PROJECT_ROOT=${PROJECT_ROOT}
       # For runners

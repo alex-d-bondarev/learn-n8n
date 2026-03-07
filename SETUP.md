@@ -33,6 +33,7 @@ docker logs -f n8n
 # Update n8n to latest version
 docker compose pull
 docker compose stop
+docker compose build
 docker compose up -d
 
 # Complete removal
