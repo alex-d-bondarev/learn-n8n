@@ -44,5 +44,7 @@ services:
     environment:
       - N8N_RUNNERS_TASK_BROKER_URI=http://n8n:5679
       - N8N_RUNNERS_AUTH_TOKEN=test
+    volumes:
+      - ${KNOWLEDGE_BASE_FOLDER}:/knowledge-base
     depends_on:
       - n8n
