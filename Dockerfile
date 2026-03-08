@@ -1,10 +1,10 @@
 FROM n8nio/runners:2.10.4
 USER root
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    build-essential \
+RUN apk add --no-cache \
+    build-base \
     python3-dev \
-    && rm -rf /var/lib/apt/lists/*
+    libffi-dev
 
 RUN cd /opt/runners/task-runner-python && \
     uv pip install 'requests==2.32.5' 'txtai==9.6.0'
